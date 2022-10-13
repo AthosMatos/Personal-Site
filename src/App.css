@@ -1,0 +1,39 @@
+.App
+{
+  overflow: hidden;
+}
+.image
+{
+  height: 120vh;
+}
+.imageContainer
+{
+  background: linear-gradient(90deg, hsla(38, 8%, 81%, 1) 0%, hsla(330, 53%, 77%, 1) 100%);
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+.imageContainer2
+{
+  background: linear-gradient(90deg, hsla(17, 95%, 50%, 1) 0%, hsla(42, 94%, 57%, 1) 100%);
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+.header
+{
+  position: fixed;
+  background-color: #d3d0cb;
+  height: 10vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition-property: all; 
+  transition-timing-function: ease-in-out;
+  transition-duration: 400ms;
+}

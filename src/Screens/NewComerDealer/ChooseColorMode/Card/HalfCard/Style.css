@@ -1,0 +1,27 @@
+:root 
+{
+    --fontS: 1.5vw;
+}
+.cardContainer
+{
+    display: flex;
+    transition: all .2s ease-in-out;
+    overflow: hidden;
+    justify-content: center;
+    
+}
+.text
+{
+    font-family: 'BarlowSemiCondensed-Bold';
+    position: absolute;
+    transition: all .2s ease-in-out;
+    margin: 1.5rem;
+    margin-top: 2.5rem;
+    font-size: var(--fontS);
+    color: aliceblue;
+}
+.img 
+{
+    transition: all .2s ease-in-out;
+    object-fit: cover;
+}
