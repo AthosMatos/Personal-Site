@@ -22,10 +22,15 @@ body {
   font-family: 'BarlowSemiCondensed-Black';
   src: local('BarlowSemiCondensed-Black'), url(./assets/fonts/barlow-semi-condensed/BarlowSemiCondensed-Black.ttf) format('truetype');
 }
+@font-face {
+  font-family: 'Sen-Regular';
+  src: local('Sen-Regular'), url(./assets/fonts/sen.regular.ttf) format('truetype');
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace,'Barlow Semi Condensed';
 }
 p
 {
-    font-family: 'BarlowSemiCondensed-ExtraLight';
+  font-family: 'Sen-Regular';
+  margin: 0;
 }

@@ -1,35 +1,17 @@
+import { useSelector } from "react-redux"
 import { Route,BrowserRouter, Routes } from "react-router-dom"
-
-import ChooseColorMode from "./Screens/NewComerDealer/ChooseColorMode"
-import ChosseLanguage from "./Screens/NewComerDealer/ChooseLanguage"
-import Home from "./Screens/Home"
-import NewComerDealer from "./Screens/NewComerDealer"
+import Organizer from "./Screens/Organizer"
 
 const MyRoutes = () =>
 {
+    const backColor = useSelector((state)=>state.TempBackColor.BackColor)
+
     return(
         <BrowserRouter>
-           <Routes>
-                <Route path="/" 
-                element ={<NewComerDealer/>}
-                />
-                <Route 
-                path="/Home" 
-                element ={<Home/>}
-                />
-                <Route 
-                path="/ChosseLanguage" 
-                element ={<ChosseLanguage/>}
-                />
-                <Route 
-                path="/ChooseColorMode" 
-                element ={<ChooseColorMode/>}
-                />
+            <Routes>
+                <Route path="/" element ={<Organizer/>}/>
                 <Route path="*" element={<h1>Página não encontrada</h1>} />
-           
            </Routes>
-                
-            
         </BrowserRouter>
     )
 }

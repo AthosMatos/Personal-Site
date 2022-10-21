@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const ChooseColor_PAGE = 0,  ChooseLanguage_PAGE = 1
+export const ChooseColor_PAGE = 0,  ChooseLanguage_PAGE = 1, HomePage = 2
 
 
 export const PageSaver = createSlice({

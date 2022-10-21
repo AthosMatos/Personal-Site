@@ -8,6 +8,13 @@ export const DARKMODE_BACKCOLOR = '#0E0E0E'
 export const STANDARDLIGHT_BACKCOLOR = 'white'
 export const STANDARDDARK_BACKCOLOR = 'black'
 export const SECONDARYCOLOR = '#EF233C'
+//export const SECONDARYCOLOR = '#D95159'
+const LIGHTBORDER = '#FFEF78'
+const DARKBORDER = '#002776'
+
+const iconArrowDownBlack = require('../assets/icons/arrowDownBlack.png')
+const iconArrowDownWhite = require('../assets/icons/arrowDownWhite.png')
+
 
 export const ThemeSlice = createSlice({
   name: 'theme',
@@ -19,7 +26,10 @@ export const ThemeSlice = createSlice({
         stdBackColor:'',
         PrimaryButtonColor:'',
         SecondaryButtonColor:'',
-
+        icon:'',
+        iconBorderColors:'',
+        iconArrowDown:'',
+        textColor:''
     },
   },
   reducers: {
@@ -29,6 +39,9 @@ export const ThemeSlice = createSlice({
       state.theme.stdBackColor = DARKMODE_BACKCOLOR
       state.theme.PrimaryButtonColor = LIGHTMODE_BACKCOLOR
       state.theme.SecondaryButtonColor = SECONDARYCOLOR
+      state.theme.iconArrowDown = iconArrowDownWhite
+      state.theme.textColor = LIGHTMODE_BACKCOLOR
+      state.theme.iconBorderColors = LIGHTBORDER
     },
     setLight: (state) => 
     {
@@ -36,6 +49,9 @@ export const ThemeSlice = createSlice({
       state.theme.stdBackColor = LIGHTMODE_BACKCOLOR
       state.theme.PrimaryButtonColor = DARKMODE_BACKCOLOR
       state.theme.SecondaryButtonColor = SECONDARYCOLOR
+      state.theme.iconArrowDown = iconArrowDownBlack
+      state.theme.textColor = DARKMODE_BACKCOLOR
+      state.theme.iconBorderColors = DARKBORDER
     },
   },
 })

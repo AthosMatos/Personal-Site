@@ -1,26 +1,25 @@
 import Card from './Card'
-import SpringButton from '../../../CustomComponents/SpringButton'
-import { useNavigate } from 'react-router-dom'
+import SpringButton from '../../CustomComponents/SpringButton'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { DarkTheme, LightTheme, setDark, setLight } from '../../../Redux/ThemeDealer'
-import { ChooseLanguage_PAGE, setPage } from '../../../Redux/PageSaver'
+import { DarkTheme, LightTheme, setDark, setLight } from '../../Redux/ThemeDealer'
+import { ChooseLanguage_PAGE, setPage } from '../../Redux/PageSaver'
 
-const ChooseColorMode = ({OnChoose}) =>
+const ChooseColorMode = () =>
 {   
-    const navigate = useNavigate()
     const dispatch = useDispatch()
 
     useEffect(() =>
     {
-        localStorage.clear()
-        //console.log(localStorage.getItem('theme'))
+        //localStorage.clear()
         const theme = localStorage.getItem('theme')
         if(theme)
         {
             if(theme == LightTheme) dispatch(setLight())
             else if(theme == DarkTheme)dispatch(setDark())
-            navigate('/Home')
+
+            dispatch(setPage(ChooseLanguage_PAGE))
+
         }
     },[])
 

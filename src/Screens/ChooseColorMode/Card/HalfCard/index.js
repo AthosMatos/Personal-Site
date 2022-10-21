@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { DarkTheme, LightTheme, setDark, setLight } from '../../../../../Redux/ThemeDealer';
+import { DarkTheme, LightTheme, setDark, setLight } from '../../../../Redux/ThemeDealer';
 import './Style.css'
 
 const HalfCard = ({Text,img,onHoverInChangeToColor,onHoverOutChangeToColor,ThemeColor,Containerstyle}) =>

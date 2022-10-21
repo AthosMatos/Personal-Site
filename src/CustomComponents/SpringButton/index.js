@@ -5,6 +5,7 @@ import {animated, useSpring } from 'react-spring';
 const SpringButton = (
 { 
     GradientBorder, 
+    FadeOff,
     GradientBorderWidth, 
     GradientBorderColors, 
     GradientBorderSpeed, 
@@ -20,8 +21,8 @@ const SpringButton = (
     OnPressScaleTo,
     opacityTo,
     FadeOutOnPress,
-    show,
-    showPointer
+    showPointer,
+    OnShow
 }) => 
 {
     const [clicked,setClicked]= useState(false)
@@ -30,7 +31,19 @@ const SpringButton = (
     const [opacity, setOpacity] = useState(opacityTo ? opacityTo : 1)
     const ref = useRef()
     const backColor = useSelector((state)=>state.TempBackColor.BackColor)
-   
+    const [firstShow,setfirstShow] = useState(true)
+
+
+    useEffect(()=>
+    {
+        if(FadeOff) 
+        {
+            setOpacity(0)
+            //console.log('fOff')
+        }
+       
+    },[FadeOff])
+
     const ScaleAnimationDealer = () => 
     {
         if (ref.current) 
@@ -39,7 +52,8 @@ const SpringButton = (
 
             //console.log(Math.round((100*progress)/scale))
             
-            if (pressState === 1) {
+            if (pressState === 1) 
+            {
                 if (Math.abs(progress - scale) <= 0.05) 
                 {
                     setscale(FadeOutOnPress ? 0:  1)
@@ -58,6 +72,14 @@ const SpringButton = (
                     }
                     setPressState(0)
                     
+                }
+            }
+            else
+            {
+                if(firstShow && (Math.abs(progress - scale) <= 0.05))
+                {
+                    OnShow&&OnShow()
+                    setfirstShow(false)
                 }
             }
         }
@@ -86,7 +108,13 @@ const SpringButton = (
        
         <animated.div
         ref={ref}
-        style={Object.assign(animatedStyle, style,GradientBorder&& GradientAnimation,{cursor:showPointer ? 'pointer' : 'default'})}
+        style={Object.assign(
+            animatedStyle, 
+            style,
+            GradientBorder&& GradientAnimation,
+            GradientBorder&& { borderRadius:'100rem',},
+            {cursor:showPointer ? 'pointer' : 'default'})
+        }
         onMouseLeave={()=>
         {
             if(enableHover && pressState == 0)
