@@ -18,11 +18,10 @@ const Home = () =>
         display:'flex',
         justifyContent:'space-evenly',
         minWidth:'20vw',
-        flexDirection:'column',
-        minHeight:'26vh',
+        flexDirection:'column',  
         marginLeft:30}}>
         
-        <LanguageButton/>
+        <LanguageButton style={{marginBottom:'3vh'}}/>
         <LightSwitchButton/>
       </motion.div>
     </div>

@@ -5,7 +5,7 @@ import useMeasure from "react-use-measure";
 import { useSelector } from "react-redux";
 import { BsFillSunFill } from "react-icons/bs";
 
-export default function LightSwitchButton() 
+export default function LightSwitchButton({style}) 
 {
     const [isOpen, setIsOpen] = useState(false);
     const [clicked,setClicked] = useState(false)
@@ -60,7 +60,7 @@ export default function LightSwitchButton()
                 setopenH(iconref.offsetHeight * 2)
                 setClosedW(iconref.offsetWidth)
                 setClosedH(iconref.offsetHeight)
-                // console.log('ButtonW',iconRef.current.offsetWidth) 
+                //console.log('ButtonH',iconref.offsetHeight) 
             }
         } 
     },[textW,imgRef,])
@@ -102,40 +102,48 @@ export default function LightSwitchButton()
                
             }]}
         style=
-        {{
-            border:firstOpen?'':`solid ${themeBorder} 2px`,
-            width:buttonW?buttonW:'max-content',
-            height:buttonH?buttonH:'max-content',
-            opacity:firstOpen?0:1,
-            overflow:'hidden', 
-            borderRadius:40,
-            
-        }}
+        {Object.assign(
+                {
+                    border:firstOpen?'':`solid ${themeBorder} 2px`,
+                    width:buttonW?buttonW:'max-content',
+                    height:buttonH?buttonH:'max-content',
+                    opacity:firstOpen?0:1,
+                    overflow:'hidden', 
+                    borderRadius:60,
+                    display:'flex',
+                    alignItems:'center',
+                    
+                },
+                style
+            )
+        }
         onMouseEnter={()=>setIsOpen(true)}
         onMouseLeave={()=>setIsOpen(false)}
-        > 
-            <div style=
+        >   
+            <div 
+            ref={imgRef}
+            style=
             {{
-                display:'flex',
-                alignItems:'center',
+                width:iconSize,
+                height:iconSize,
+                padding:10,
             }}>
-                <div 
-                ref={imgRef}>
-                    <BsFillSunFill
-                    style=
-                    {{
-                        borderRadius:40,
-                        width:iconSize,
-                        height:iconSize,
-                        objectFit:'cover',
-                        //padding:10
-                    }}
-                    color={themeBorder}
-                    />
-                </div>
-                
-                <p ref={textRef} style={{fontSize:fontSize,color:textColor,cursor:'pointer'}}>{theme}</p>
-            </div>     
+                <BsFillSunFill
+                style=
+                {{
+                    borderRadius:60,
+                    width:iconSize,
+                    height:iconSize,
+                    objectFit:'cover',
+                    
+
+                }}
+                color={themeBorder}
+                />
+            </div>
+            
+            <p ref={textRef} style={{fontSize:fontSize,color:textColor,paddingRight:30}}>{theme}</p>
+              
         </motion.div>
     );
 }

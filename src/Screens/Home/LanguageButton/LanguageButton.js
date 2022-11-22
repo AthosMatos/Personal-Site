@@ -5,7 +5,7 @@ import useMeasure from "react-use-measure";
 import { useSelector } from "react-redux";
 import { AiOutlineQuestion } from "react-icons/ai";
 
-export default function LanguageButton() 
+export default function LanguageButton({style}) 
 {
     const [isOpen, setIsOpen] = useState(false);
     const [clicked,setClicked] = useState(false)
@@ -104,15 +104,18 @@ export default function LanguageButton()
                
             }]}
         style=
-        {{
-            border:firstOpen?'':`solid ${languageBorder?languageBorder:'white'} 2px`,
-            width:buttonW?buttonW:'max-content',
-            height:buttonH?buttonH:'max-content',
-            opacity:firstOpen?0:1,
-            overflow:'hidden', 
-            borderRadius:40,
-            
-        }}
+        {Object.assign(
+            {
+                border:firstOpen?'':`solid ${languageBorder?languageBorder:'white'} 2px`,
+                width:buttonW?buttonW:'max-content',
+                height:buttonH?buttonH:'max-content',
+                opacity:firstOpen?0:1,
+                overflow:'hidden', 
+                borderRadius:60,
+                
+            },
+            style
+        )}
         onMouseEnter={()=>setIsOpen(true)}
         onMouseLeave={()=>setIsOpen(false)}
         > 
@@ -131,7 +134,7 @@ export default function LanguageButton()
                 }}
                 src={languageIMG}
                 />
-                <p ref={textRef} style={{fontSize:fontSize,color:textColor,cursor:'pointer'}}>{language}</p>
+                <p ref={textRef} style={{fontSize:fontSize,color:textColor}}>{language}</p>
                 <div 
                 ref={arrowDownRef} 
                 style = {{paddingRight:30,paddingLeft:20,}} >
@@ -165,7 +168,7 @@ export default function LanguageButton()
                 }}
                 src={languageIMG}
                 />
-                <p style={{fontSize:fontSize,color:textColor,cursor:'pointer'}}>{language}</p>
+                <p style={{fontSize:fontSize,color:textColor,}}>{language}</p>
             </div>        
         </motion.div>
     );
