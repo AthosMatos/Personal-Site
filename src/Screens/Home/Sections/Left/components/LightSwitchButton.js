@@ -27,8 +27,8 @@ export default function LightSwitchButton({style})
     const themeBorder = useSelector((state)=>state.Personalization.theme.iconBorderColors)
     const themeIMG = useSelector((state)=>state.Personalization.theme)
 
-    const iconSize = '60px'
-    const fontSize = '30px'
+    const iconSize = '30px'
+    const fontSize = '15px'
 
     useEffect(()=>
     {
@@ -126,7 +126,7 @@ export default function LightSwitchButton({style})
             {{
                 width:iconSize,
                 height:iconSize,
-                padding:10,
+                padding:'6px',
             }}>
                 <BsFillSunFill
                 style=

@@ -29,8 +29,9 @@ export default function LanguageButton({style})
     const language = useSelector((state)=>state.LanguageDealer.language)
     const languageBorder = useSelector((state)=>state.LanguageDealer.borderColor)
     
-    const iconSize = '60px'
-    const fontSize = '30px'
+    const iconSize = '30px'
+    const fontSize = '15px'
+    const insidePadding = '6px'
 
     useEffect(()=>
     {
@@ -111,7 +112,7 @@ export default function LanguageButton({style})
                 height:buttonH?buttonH:'max-content',
                 opacity:firstOpen?0:1,
                 overflow:'hidden', 
-                borderRadius:60,
+                borderRadius:24,
                 
             },
             style
@@ -130,14 +131,14 @@ export default function LanguageButton({style})
                     width:iconSize,
                     height:iconSize,
                     objectFit:'cover',
-                    padding:10
+                    padding:insidePadding
                 }}
                 src={languageIMG}
                 />
-                <p ref={textRef} style={{fontSize:fontSize,color:textColor}}>{language}</p>
+                <p ref={textRef} style={{fontSize:fontSize,color:textColor,cursor:clicked ?'pointer' : 'default'}}>{language}</p>
                 <div 
                 ref={arrowDownRef} 
-                style = {{paddingRight:30,paddingLeft:20,}} >
+                style = {{paddingRight:15,paddingLeft:10,}} >
                     <motion.img animate={[
                     {
                         rotate:clicked?'180deg':'0deg',
@@ -146,7 +147,7 @@ export default function LanguageButton({style})
                     }]} 
                     onMouseOver={()=>setonhoverArrowDown(true)}
                     onMouseLeave={()=>setonhoverArrowDown(false)}
-                    width={30} 
+                    width={fontSize} 
                     src={iconArrowDown} 
                     style={{borderRadius:0,cursor:'pointer'}}
                     onClick={()=>setClicked(!clicked)}/>
@@ -164,11 +165,11 @@ export default function LanguageButton({style})
                     width:iconSize,
                     height:iconSize,
                     objectFit:'cover',
-                    padding:10
+                    padding:insidePadding
                 }}
                 src={languageIMG}
                 />
-                <p style={{fontSize:fontSize,color:textColor,}}>{language}</p>
+                <p style={{fontSize:fontSize,color:textColor,cursor:clicked ?'pointer' : 'default'}}>{language}</p>
             </div>        
         </motion.div>
     );
