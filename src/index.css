@@ -7,30 +7,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 @font-face {
-  font-family: 'BarlowSemiCondensed-Light';
-  src: local('BarlowSemiCondensed-Light'), url(./assets/fonts/barlow-semi-condensed/BarlowSemiCondensed-Light.ttf) format('truetype');
+  font-family: 'Goldplay SemiBold';
+  src: local('Goldplay SemiBold'), url(./assets/fonts/goldplay/GoldplayBlack.otf) format('truetype');
 }
 @font-face {
-  font-family: 'BarlowSemiCondensed-ExtraLight';
-  src: local('BarlowSemiCondensed-ExtraLight'), url(./assets/fonts/barlow-semi-condensed/BarlowSemiCondensed-ExtraLight.ttf) format('truetype');
+  font-family: 'Goldplay Bold';
+  src: local('Goldplay Bold'), url(./assets/fonts/goldplay/GoldplayBold.otf) format('truetype');
 }
 @font-face {
-  font-family: 'BarlowSemiCondensed-Bold';
-  src: local('BarlowSemiCondensed-Bold'), url(./assets/fonts/barlow-semi-condensed/BarlowSemiCondensed-Bold.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'BarlowSemiCondensed-Black';
-  src: local('BarlowSemiCondensed-Black'), url(./assets/fonts/barlow-semi-condensed/BarlowSemiCondensed-Black.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Sen-Regular';
-  src: local('Sen-Regular'), url(./assets/fonts/sen.regular.ttf) format('truetype');
+  font-family: 'Goldplay Black';
+  src: local('Goldplay Black'), url(./assets/fonts/goldplay/GoldplaySemiBold.otf) format('truetype');
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace,'Barlow Semi Condensed';
 }
 p
 {
-  font-family: 'Sen-Regular';
   margin: 0;
 }
